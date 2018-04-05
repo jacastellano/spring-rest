@@ -1,2 +1,2 @@
 # spring-rest
-Learn about Spring Rest.
+Learn about Spring Rest
