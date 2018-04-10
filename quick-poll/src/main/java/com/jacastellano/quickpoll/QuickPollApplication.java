@@ -1,4 +1,4 @@
-package com.ardila.quick.poll;
+package com.jacastellano.quickpoll;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
