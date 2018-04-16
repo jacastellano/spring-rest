@@ -5,26 +5,30 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import com.jacastellano.quickpoll.domain.Vote;
 import com.jacastellano.quickpoll.dto.OptionCount;
 import com.jacastellano.quickpoll.dto.VoteResult;
 import com.jacastellano.quickpoll.repository.VoteRepository;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
 
 @RestController
+@Api(value = "compute", description = "Computer Result API")
 public class ComputeResultController {
 
 	@Inject
 	private VoteRepository voteRepository;
 
 	@RequestMapping(value = "/computerResult", method = RequestMethod.GET)
-	public ResponseEntity<?> computeResult(@RequestParam Long pollId) {
+	@ApiOperation(value = "Retrieves calculated results", response = VoteResult.class)
+	public ResponseEntity<VoteResult> computeResult(@RequestParam Long pollId) {
 
 		VoteResult voteResult = new VoteResult();
 		Iterable<Vote> allVotes = voteRepository.findByPoll(pollId);

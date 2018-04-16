@@ -71,6 +71,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 		return handleExceptionInternal(manve, errorDetail, headers, status, request);
 	}
 
+	@Override
 	protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 
