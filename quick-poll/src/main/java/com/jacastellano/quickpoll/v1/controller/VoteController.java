@@ -1,4 +1,4 @@
-package com.jacastellano.quickpoll.controller;
+package com.jacastellano.quickpoll.v1.controller;
 
 import javax.inject.Inject;
 
@@ -20,7 +20,8 @@ import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiResponse;
 import com.wordnik.swagger.annotations.ApiResponses;
 
-@RestController
+@RestController("voteControllerV1")
+@RequestMapping("/v1/")
 @Api(value = "votes", description = "Vote API")
 public class VoteController {
 

@@ -1,4 +1,4 @@
-package com.jacastellano.quickpoll.controller;
+package com.jacastellano.quickpoll.v2.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +19,8 @@ import com.jacastellano.quickpoll.repository.VoteRepository;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 
-@RestController
+@RestController("computeResultControllerV2")
+@RequestMapping("/v2/")
 @Api(value = "compute", description = "Computer Result API")
 public class ComputeResultController {
 
