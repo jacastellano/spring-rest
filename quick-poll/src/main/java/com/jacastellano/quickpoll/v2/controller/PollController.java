@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -80,6 +81,7 @@ public class PollController {
 	@ApiOperation(value = "Deletes a Poll associated with the pollId", response = Void.class)
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "", response = Poll.class),
 			@ApiResponse(code = 404, message = "Poll not found", response = ErrorDetail.class) })
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	public ResponseEntity<Void> deletePoll(@PathVariable Long pollId) {
 		verifyPoll(pollId);
 		pollRepository.deleteById(pollId);
